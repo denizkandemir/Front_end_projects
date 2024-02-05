@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+</head>
+<body>
+   <table border="2" width=50%>  
+     <thead>
+        <tr>     //tr rowlar için kullanılır
+
+         <th> Car Name </th>
+         <th> Price    </th>
+         <th> Info     </th>
+
+        </tr>
+
+         //Tablonun en üst kısmındaki başlıklar
+
+     </thead>
+     
+    <tbody>
+       
+        //Tablonun geri kalan rowları tbody içinde yazılır
+
+        <tr>
+          <td> Opel </td>
+          <td> 50.000 </td>
+          <td> A new opel car </td>
+        </tr>
+
+        <tr>
+            <td> Fiat </td>
+            <td> 70.000 </td>
+            <td> A new fiat car </td>
+        </tr>
+        
+        <tr>
+            <td> BMW </td>
+            <td> 90.000 </td>
+            <td> A new BMW car </td>
+        </tr>
+         
+        <tr>
+            <td colspan="3"> We do not have any cars  </td>
+
+            //colspan, verilen sayı kadar colum u birleştirir
+        </tr>
+
+        <tr>
+            <td> Opel </td>
+            <td> 50.000 </td>
+            <td rowspan="2"> A new opel car </td>
+
+            // rowları birleştirir
+
+          </tr>
+    </tbody>
+  
+   </table>
+
+    
+</body>
+</html>
