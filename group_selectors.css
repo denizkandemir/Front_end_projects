@@ -1,0 +1,31 @@
+/*
+
+div p : div içerisindeki tüm p etiketlerini değiştirir
+
+div , p : div ve tüm p etiketlerini değiştirir
+
+p + div : p etiketinden sonra gelen div etiketini değiştirir
+
+class div : class kısmının altındaki divleri değiştirir
+*/
+
+/*div p {
+   color: crimson;
+   font-size: 30px;    
+}*/
+
+.pourple_class {
+    color: purple;
+    text-align: center;
+}
+
+.pourple_class div{
+    color: rgb(8, 31, 246);
+    text-align: justify;
+}
+
+.blue_class div p {
+    color: blue;
+    font-size: 50px;
+}
+

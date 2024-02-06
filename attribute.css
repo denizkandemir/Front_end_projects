@@ -1,0 +1,22 @@
+h1[title="first_title"] {
+    color: crimson;
+    text-align: center;
+}
+
+p[title="first_p"] {
+    color: aqua;
+    font-size: 30px;
+}
+
+a[target="_blank"] {
+    color: rgb(251, 10, 10);
+    text-align: justify;
+}
+
+input[type="text"] {
+    background-color: bisque;
+}
+
+/*
+Eklediğimiz , title ,name, targer gibi isimler sayesinde 
+İstediğimiz property e istediğimiz özelliği verduk*/
