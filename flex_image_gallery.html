@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Image Gallery </title>
+
+    <style>
+        body{
+            background-color: rgb(212, 100, 100);
+        }
+        .container {
+            background-color:rgb(167, 55, 55);
+            margin: 30px;
+            border: 3px solid ;
+            border-color: crimson;
+            border-radius: 30px;
+            padding: 10px;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap; /*aşağı inmelerini sağlıyor*/
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .container>div>img {
+            margin: 30px;  
+            width: 250px;
+            height: 250px;
+        }
+
+        .images > img {
+            border: 2px solid crimson;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="images">
+            <img src="images/about-city-img-india.png" alt="">
+            <img src="images/about-city-img-pakistan.png" alt="">
+            <img src="images/about-city-img-tommorowland.png" alt="">
+            <img src="images/homepage-explore1.png" alt="">
+            <img src="images/homepage-explore2.png" alt="">
+            <img src="images/hometour-packages-brazil.png" alt="">
+            <img src="images/hometour-packages-eygpt.png" alt="">
+            <img src="images/hometour-packages-switzerland.png" alt="">   
+        </div>
+    </div>
+
+</body>
+
+</html>

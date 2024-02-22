@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flex </title>
+    <style>
+        .container {
+            border: 5px solid #ffcc5c;
+            display: flex;
+
+            /* justify-content: space-around; 
+            Köşedede eşit boşluk kalcak şekilde boşluklar bırakır
+            justify-content: space-between;
+            Kçşede boşluk bırakmadan itemlar arası eşit boşluk bırakır
+            
+            flex-wrap: wrap;
+            Eğer kutuda yeterli yer yoksa, sığmayan item ı aşağıya atmamıza yarar
+
+            */
+            height: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            margin-top: 20px;
+            border-radius: 20px;
+           
+            /*
+             display: flex;
+            flex-direction: column;
+             flex kutusu içindekileri alt alta sıralar
+            justify-content: center;
+            ortaya kutunun width kadar genişlikle getirir
+            height: 100%;
+            align-items: center;
+            tam kutunun ortasına koyar*/
+        }
+
+        .container>div {
+            flex: 1;
+            /*container içindeki tüm divleri etkiler
+            flex 1 verince eşit alan kaplarlar.*/
+            text-align: center;
+            padding: 5px;
+            font-size: 30px;
+        }
+
+        .home {
+            background-color: aqua;
+            border-top-left-radius: 17px;
+            border-bottom-left-radius: 17px;
+        }
+
+        .search {
+            background-color: blueviolet;
+        }
+
+        .logout {
+            background-color: cadetblue;
+        }
+
+        .profile {
+            background-color: blue;
+            border-top-right-radius: 17px;
+            border-bottom-right-radius: 17px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="home">Home</div>
+        <div class="search">Search</div>
+        <div class="logout">Logout</div>
+        <div class="profile">Profile</div>
+    </div>
+
+</body>
+
+</html>

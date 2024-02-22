@@ -1,0 +1,48 @@
+/*pseudo elements*/
+
+p::first-line{
+    font-weight: bold; /*İlk satırı kalın yapar.*/
+    color: darkred;
+    word-spacing: 2px; /*kelimeler arası 2px burakır*/
+    letter-spacing: 2px;
+}
+
+p::first-letter{
+    font-size: 20px;
+}
+
+/*pseudo class
+ Listeler gibi elementlere uygulanır
+*/
+
+ul li {
+  padding: 10px; /*Maddenin sayfanın sağıyla arasındaki mesafe*/
+  margin-bottom: 10px; /*Maddeler arasındaki mesafe alttan*/
+  /*margin : Mesela tüm divin sayfayla arasındaki boşluğudur
+  padding : Divin içindeki maddelerin, divin sınırlarıyla olan boşluğu*/
+}
+
+ul li :first-child{
+    background-color: aqua; /*ilk maddenin arkası*/
+}
+
+ul li:last-child{
+    background-color: brown;
+}
+
+a:visited {
+    color: cadetblue; /*Linke tıklanınca linkin rengi değişçek*/
+}
+
+a:hover{
+    color: black;
+    background-color: aqua; /*Linkin üzerine fareyi getirince değişçekler*/
+}
+
+a {
+   padding: 5px ; /*5px sağdan boşluk*/
+   text-decoration: none;
+   display: block; /*Alt alta gözükmeleri için blok dedik Tüm kelimeler alt alta oldu*/
+   width: 10px;
+   margin-bottom: 10px;
+}

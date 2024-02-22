@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Floating </title>
+
+    <style>
+        body{
+            background-color: rgba(118, 57, 57, 0.368);
+        }
+        img {
+            width: 800px;
+            float: left;
+            margin-right: 20px;
+            margin-left: 20px;
+            border-radius: 20px;
+        }
+
+        .Rivendell_class {
+            border: 2px rgb(55, 1, 1);
+            border-radius: 20px;
+            overflow: auto;
+            padding: 10px;
+            margin: 20px;
+            /*background-color: antiquewhite;*/
+        }
+        
+        .start {
+            background-color: black;
+            height: 320px;
+            width: 1000px;
+        }
+
+        
+        #first {
+            background-color: blue;
+            float: left;
+            margin-left: 5px;     
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+                  
+        }
+
+        #second {
+            background-color: blueviolet;
+            float: left;
+            margin-left: 5px;
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+          
+        }
+
+        #third {
+            background-color: cadetblue;
+            float: left;
+            margin-left: 5px;
+            width: 300px;
+            height: 300px;
+            overflow: auto;
+          
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>
+        I WISH I HAD AN ANGEL
+    </h1>
+
+    <div class="Rivendell_class">
+        <h2 style="margin-left: 20px;"> RIVENDELL </h2>
+
+        <img src="images/3203467.jpg" alt="">
+        <p>
+            <br>
+            Rıvendell is the one of the most magical places in Middle Earth.
+            The place is the home of elves and also home of the elvish Lord Elrond
+            You can have so much great time in rivendell, while you are sightseeing
+            with so many elves.
+        </p>
+
+    </div>
+
+    <br> <br>
+    <div class="start">
+        <div id="first">
+            <p>
+                Float ile, resim solda kalırken, yazının ise sağda kalmasını sağladık. <br>
+                Margin-right : Resim ile yazı arasında 20pxlik boşluk verdi <br>
+                Overflow auto, div'e aldığımız bölümün sınırlarının, site boyutu değişşe bile <br>
+                aynı kalmasını sağladı.
+            </p>
+        </div>
+
+        <div id="second">
+            <p>
+                HOW I WISH, HOW I WISH YOU WERE HERE <br>
+                WE JUST TWO LOST SOULS SWIMMING IN A FISH POOL <br>
+            </p>
+        </div>
+
+        <div id="third">
+            <p>
+                Floating i divlerde kullanarak, yan yana olmalarını sağladık.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

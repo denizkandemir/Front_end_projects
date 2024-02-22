@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ICONS </title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background-color: pink;
+        }
+
+        i {
+            font-size: 100px;
+            color: crimson;
+        }
+
+        p#Sheperd {
+            text-align: center;
+            border: 2px solid crimson;
+            padding: 10px;
+
+            column-count: 3;
+            -webkit-column-count: 3;
+
+            column-rule: 2px solid crimson;
+            /*
+            column count ile 3 koluma ayırarak,
+            yazıyı 3 e böldük.
+            webkit yazan yer, tüm tarayıcılarda çalışması için
+            column rule ile aralara border ekledik*/
+
+        }
+
+        #button {
+            background-color: blueviolet;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 50px;
+            width: 200px;
+            height: 70px;
+        }
+
+        .columns {
+            width: 800px;
+            display: flex; /*yan yana aldı tüm divin içindekileri */
+            padding: 5px
+        }
+
+        .column {
+            border: 2px solid red;
+            padding: 5px;
+            background-color: blueviolet;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p> ikonları kullanabilmek için kütphaneyi dahil ettik</p>
+    <i class="fa-solid fa-ghost"></i>
+    <i class="fa-solid fa-plane"></i> <br><br>
+    <button id="button" class="fa-solid fa-plane"> PLANE CRUSHING </button>
+    <p> Butona ikon ekledik </p>
+
+    <p id="Sheperd">
+        Don't you see I am your pride <br>
+        I am your war <br>
+        I'll be the storm <br>
+        Sheperd OF FIREEEE <br>
+        AVENGED SEVENFOLD FOREVER
+        I AM YOUR WAR MY FRIEND
+
+        Disease , Disease ,Disease my friedns <br>
+        This whole world is devils hand
+    </p>
+
+    <div class="columns">
+        <!-- column 1 -->
+        <div class="column">
+            <h3>HTML</h3>
+            <p>Magna fringilla urna porttitor rhoncus dolor purus. Malesuada bibendum arcu vitae elementum. Purus sit
+                amet volutpat consequat. </p>
+        </div>
+
+        <!-- column 2 -->
+        <div class="column">
+            <h3>CSS</h3>
+            <p>Magna fringilla urna porttitor rhoncus dolor purus. Malesuada bibendum arcu vitae elementum. Purus sit
+                amet volutpat consequat. </p>
+        </div>
+
+        <!-- column 3 -->
+        <div class="column">
+            <h3>And More!</h3>
+            <p>Magna fringilla urna porttitor rhoncus dolor purus. Malesuada bibendum arcu vitae elementum. Purus sit
+                amet volutpat consequat. </p>
+        </div>
+
+    </div> <!-- / columns -->
+</body>
+
+</html>
