@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        margin: 0;
+    }
+
+    .navbar {
+        display: flex;
+        position: absolute;
+        width: 1000px;
+        height: 67px;
+        top: 64px;
+        left: 321px;
+        justify-content:space-between;
+        align-items: center;
+       
+    }
+
+    .notunderlined {
+        color: white;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .underlined {
+        text-decoration: underline rgba(231, 101, 2, 0.99);
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .touch {
+        background-color: rgba(231, 101, 2, 0.99);
+        color: white;
+        height: 60px;
+        width: 150px;
+        border-radius: 20px;
+        font-size: 15px;
+    }
+
+    /*her şeyin içinde olduğu flexbox*/
+
+    .center {
+        position: absolute;
+        width: 700px;
+        height: 450px;
+        top: 210px;
+        left: 320px;
+        display: flex;
+        flex-direction: column;
+       /* background-color: black;*/
+    }
+     
+    /*flexbox ın içindeki ilk resim*/
+
+    .vector {
+        width: 90px;
+        height: 30px;
+        position: relative;
+        margin: 0;
+        top: 0;
+      /* background-color: aqua;*/
+    }
+    
+    /*yazının ayarları*/
+
+    .bigwriting {
+        position: relative;
+        top: 0;
+        height: 220px;  
+       /* background-color: aquamarine;*/
+    }
+
+    .writed {
+        color: white;
+        font-size: 60px;
+        top: 0;
+        margin: 0;
+        font-weight: bold;
+    }
+    
+
+    /*seçenekler kısmı */
+
+
+    .section {
+        display: flex;
+        position: relative;
+        height: 80px;
+        width: 630px;
+        top: 0;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(168, 171, 151);
+        opacity: 95%;
+    }
+
+    .selection {
+        background-color: transparent;
+        color: white;
+        border: none;
+        font-size: 17px;
+    }
+
+    .option {
+        color: black;
+        background-color: rgb(168, 171, 151);
+        opacity: 95%;
+    }
+
+    .submit {
+        font-size: 17px;
+        color: white;
+        background-color: rgba(231, 101, 2, 0.99);
+        padding: 10px;
+        border-radius: 10px;
+        width: 140px;
+        height: 50px;
+    }
+     
+    /*Profile section */
+
+    .profiles {
+        display: flex;
+        height: 50px;
+        width: 580px;
+        position: relative;
+        top: 15px;
+       /* background-color: blue;*/
+    }
+
+    .avatar1 {
+        left: 0;
+        position: absolute;
+    }
+
+    .avatar2 {
+        left: 25px;
+        position: absolute;
+    }
+    
+    .avatar3{
+        left: 50px;
+        position: absolute;
+    }
+
+    .avatar4 {
+        left: 75px;
+        position: absolute;
+    }
+
+    .avatar5 {
+        left: 100px;
+        position: absolute;
+    }
+
+    .avatar6 {
+        left: 125px;
+        position: absolute;
+    }
+    
+    .avatar7 {
+        left: 150px;
+        position: absolute;
+    }
+
+    .plus {
+        left: 166px;
+        bottom: 27px;
+        position: absolute;
+    }
+
+    .avatar-writing {
+        position: absolute;
+        left: 195px;
+        bottom: 6px;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+</style>
+
+<body>
+    <div class="container">
+        <img class="background" src="images/homepage-background.png" alt="">
+        <div class="navbar">
+            <img src="images/logo.png" alt="">
+            <div>
+                <a href="" class="underlined"> Home </a>
+                <a href="" class="notunderlined"> About </a>
+                <a href="" class="notunderlined"> Services </a>
+                <a href="" class="notunderlined"> Upcoming Packages </a>
+            </div>
+            <button class="touch"> Get in Touch </button>
+        </div>  
+        <div class="center">
+            <img class="vector" src="images/Vector-1.png" alt="">
+            <div class="bigwriting">
+                <p class="writed"> No matter where <br> you're going,
+                    we'll <br> take you there
+                </p>
+            </div>
+            <div class="section">
+                <div>
+                    <select class="selection">
+                        <option class="option">Where to?</option>
+                        <option class="option"> Europe </option>
+                        <option class="option"> Asia </option>
+                    </select>
+                </div>
+                <img src="images/line001.png" alt="">
+                <div>
+                    <select class="selection">
+                        <option class="option"> Travel Type </option>
+                        <option class="option"> Plane </option>
+                        <option class="option"> Bus </option>
+                        <option class="option"> Train </option>
+                    </select>
+                </div>
+                <img src="images/line001.png" alt="">
+                <div>
+                    <select class="selection">
+                        <option class="option"> Duration </option>
+                        <option class="option"> A weekend </option>
+                        <option class="option"> Week </option>
+                        <option class="option"> Flexible </option>
+                    </select>
+                </div>
+                <div>
+                    <button class="submit"> Submit </button>
+                </div>
+            </div>
+            <div class="profiles">
+                <img class="avatar1" src="images/user-avatar2.png" alt="">
+                <img class="avatar2" src="images/user-avatar3.png" alt="">
+                <img class="avatar3" src="images/user-avatar4.png" alt="">
+                <img class="avatar4" src="images/user-avatar1.png"" alt="">
+                <img class="avatar5" src="images/user-avatar5.png" alt="">
+                <img class="avatar6" src="images/user-avatar6.png" alt="">
+                <img class="avatar7" src="images/user-avatar-emty.png" alt="">
+                <img class="plus" src="images/plus.png" alt="">
+                <p class="avatar-writing">
+                 2,500 people booked Tommorowland Event in last 24 hours
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

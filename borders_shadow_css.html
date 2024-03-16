@@ -12,6 +12,10 @@
             background-color: lightblue;
             margin: 20px;
             padding: 30px;
+            box-shadow: 5px 5px 25px 5px #640c0c;/*ilk değer sağdan sola shadow 
+            ikincisi yukardan aşağıya büyüklüğü.. 3. değer bulanıklık
+            4.değer, rengin dağıtılması*/
+
         }
 
         #box1 {
@@ -25,6 +29,11 @@
             border-right-style: groove;
             /*Bu şekil, aynı kutuda, kenarların tipi değişebilir*/
         }
+
+        img {
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%);
+            /*internetten değerlerine bakarsın, resimi, geometrik şekillere dönüştürür.*/
+        }
     </style>
 </head>
 
@@ -33,6 +42,7 @@
     <div id="box1" class="boxes"> <p>BOX 1</p> </div>
     <div id="box2" class="boxes"> BOX 2 </div>
     <div id="box3" class="boxes"> BOX 3 </div>
+    <img src="images/about-city-img-tommorowland.png" alt="">
 
 </body>
 

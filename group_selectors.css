@@ -29,3 +29,23 @@ class div : class kısmının altındaki divleri değiştirir
     font-size: 50px;
 }
 
+.paradise div > p {
+    /*Bunun anlamı, divin içindeki çocuğun p'si
+    Yani section içindeki pyi etkiliyor*/
+    background-color: blueviolet;
+}
+
+.paradise div + p {
+    /*Bu arkadaş divden sonraki pyi etkiler. Yani 4. paragraf*/
+    background-color: aqua;
+}
+
+.paradise div ~ p {
+    /*divden sonra gelen tüm pleri etkiler. Yani hem 4 hem de 5. paragraf*/
+    background-color: blanchedalmond;
+}
+
+p.paradise {
+    /*Classı paradise olan p etiketini etkiler*/
+    color: blue;
+}

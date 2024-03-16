@@ -7,41 +7,57 @@
     <title> Floating </title>
 
     <style>
-        body{
+        body {
             background-color: rgba(118, 57, 57, 0.368);
         }
+
         img {
             width: 800px;
             float: left;
             margin-right: 20px;
             margin-left: 20px;
             border-radius: 20px;
+            padding: 10px;
         }
 
         .Rivendell_class {
-            border: 2px rgb(55, 1, 1);
-            border-radius: 20px;
             overflow: auto;
+            /*diğer elemanların resmin altında kalması için lazım*/
             padding: 10px;
             margin: 20px;
             /*background-color: antiquewhite;*/
         }
-        
+
+        .writing {
+            border: 2px solid rgb(233, 57, 26);
+            border-radius: 20px;
+            padding: 5px;
+        }
+
+        .prefix::after {
+            content: "";
+            display: block;
+            clear: both;
+            /*yazıdan sonrasının contentini boşluk olarak verip,
+            boşluğu blok olarak aşağı gönderiyoruz. Clear kısmı, floating image ın
+            alanına boşluk koymamızı ve borderın aşağı gitmesini sağlıyor*/
+        }
+
         .start {
             background-color: black;
             height: 320px;
             width: 1000px;
         }
 
-        
+
         #first {
             background-color: blue;
             float: left;
-            margin-left: 5px;     
+            margin-left: 5px;
             width: 300px;
             height: 300px;
             overflow: auto;
-                  
+
         }
 
         #second {
@@ -51,7 +67,7 @@
             width: 300px;
             height: 300px;
             overflow: auto;
-          
+
         }
 
         #third {
@@ -61,7 +77,7 @@
             width: 300px;
             height: 300px;
             overflow: auto;
-          
+
         }
     </style>
 </head>
@@ -74,16 +90,14 @@
 
     <div class="Rivendell_class">
         <h2 style="margin-left: 20px;"> RIVENDELL </h2>
-
         <img src="images/3203467.jpg" alt="">
-        <p>
+        <p class="prefix writing">
             <br>
             Rıvendell is the one of the most magical places in Middle Earth.
             The place is the home of elves and also home of the elvish Lord Elrond
             You can have so much great time in rivendell, while you are sightseeing
             with so many elves.
         </p>
-
     </div>
 
     <br> <br>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Grid </title>
+    <style>
+       .container {
+        display: grid;/*rows ve collumn oluşturup itemleri yerleştirmemize yarar*/
+        
+        /*grid-template-columns: 150px 200px 250px 300px;
+        Her bir değer, her bir item için bir column oluşturdu*/
+
+        /*grid-template-columns: 200px auto 200px auto;
+        İlk ve 3. item 200px şerlik yer kaplar, kalan tüm alan 2.ve 4.item
+        arasında paylaştırılır*/
+
+        /*grid-column: 2/-1;
+        2.column çizgisinden başlayıp, son çizgiye kadar gider*/
+
+        grid-template-columns: repeat(4,300px);
+        /*4 column a 300px lik yer verir*/
+
+        /*grid-template-rows: 100px 200px;
+         ilk satırı 100px, ikinci satırı 200px yaptı*/
+
+        row-gap: 20px;/*rowlarda gap bırakır işte amk*/
+        column-gap: 20px;
+
+        background-color: blueviolet;
+        padding: 20px;
+       }
+
+       .box {
+         background-color: darkblue;
+         font-size: 20px;
+         padding: 20px;
+       }
+
+       .box:first-child {
+         grid-column-start: 3;
+         /*3.column çizgisinden başlatır ilk elemanı*/
+
+         grid-column-end: 5;
+         /*5.column çizgisinde bitirir*/
+
+         grid-row-start: 1;
+         grid-row-end: 3;
+         /*1den 3.row çizgisine kadar*/
+
+         /*grid-column: 2/span 3;
+          2. column çizgisinden başla, 3 columnluk yer kapla meali*/
+       }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box"> Box1 </div>
+        <div class="box"> Box2</div>
+        <div class="box"> Box3</div>
+        <div class="box"> Box4</div>
+        <div class="box"> Box5</div>
+    </div>
+</body>
+
+</html>

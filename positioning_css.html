@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    /*relative : Bu verildiğinde, diğer elemanlarında üstüne geçebilir,
+  verdiğin değerler direk diğer elemanları kaydırmadan etki eder.Etrafındaki elemanlara göre
+  kendini yerleştirir.
+  Mesela top:50px verirsek, relativde üstündeki elemandan 50px bırakır, bodyden
+  itibaren bırakmaz.
+
+  absolute:Kendini her zaman body e göre yani, web sayfasının çerçevelerine göre konumlandırır.
+
+  fixed: sticky gibi, bir divi sabitlemek için kullanılır. bottom : 0 dediğin div, her zaman sayfanın en altında 
+  gözükücek, sen sayfanın neresinde olursan ol
+  */
+
+    .container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .box1 {
+        position: fixed;
+        bottom: 0;
+        width: 50%;
+        background-color: blueviolet;
+        text-align: center;
+        font-size: 30px;
+        height: 50px;  
+    }
+
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="box1">
+            FIXED POSITIONING
+        </div>
+    </div>
+</body>
+
+</html>

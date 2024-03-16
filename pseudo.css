@@ -39,10 +39,46 @@ a:hover{
     background-color: aqua; /*Linkin üzerine fareyi getirince değişçekler*/
 }
 
+a:active {
+    /*Linke 2 kere tıklamadan yani, sayfayı açmadan 1 kere tıklaynca,
+    linkin aktif olduğunu göstermek için değişecekler*/
+    color: blueviolet;
+}
+
+::selection {
+    /*Herhangi bir yazı seçildiğinde ne olacağı*/
+    background-color: black;
+    color: white;
+}
+
+p::after {
+    /*Her paragrafın sonuna bir content ekler*/
+    content: 'sympathy';
+}
+
+p::before {  
+    content: '\26A1'; /*kopyaladığımız emojiyi ekledik html emoji sayfasında*/
+}
 a {
    padding: 5px ; /*5px sağdan boşluk*/
    text-decoration: none;
    display: block; /*Alt alta gözükmeleri için blok dedik Tüm kelimeler alt alta oldu*/
    width: 10px;
    margin-bottom: 10px;
+}
+
+select:focus{
+    /*focus: select kısmına tıklanınca olucaklar*/
+    appearance: none; /*dışındaki çizgileri yok eder*/
+    background-color: aqua;
+}
+
+.checkbox {
+    vertical-align: bottom;
+    /*yazının hizasına getirir*/
+    appearance: none;
+}
+checkbox:checked{
+    /*check: tıklanınca değişecekler*/
+    background: aqua;
 }
