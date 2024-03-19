@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+
+       .box {
+         background-color:blueviolet;
+         width: 150px;
+         height: 150px;
+         transition: all 1s ease-in-out;
+       }
+
+        .box:hover {
+         /*transform: rotate(45deg);
+         döndürür la işte derece kadar
+         transform: skew(-30deg);
+         Bu yamultuyo
+         transform: scale(3);
+         3 katına çıkarır
+         transform:translateX(100px);
+         X ekseninde 100px kaydırır
+         transform:translateY(-200px);
+         
+         transform: translate(100px,200px);
+         İlki X ekseni, 2.si Y ekseni için
+
+         transform: rotateX(180deg);
+         X ekseninde 180derece döndürür
+         transform: rotateY(180deg);
+         cursor:pointer;
+         Bu arkadaş mouse imlecini değiştirio üstüne gelince
+         */
+         transform: translate(100px,200px);
+         transform: rotate(45deg);
+      
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+        </div>
+    </div>
+    
+</body>
+</html>

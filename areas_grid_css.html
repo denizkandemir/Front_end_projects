@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Grid areas </title>
+</head>
+<style>
+    .container {
+        display: grid;
+        grid-template-areas: "header header header" /*3 e ayırarak, 3 satırı da header a verdik*/
+                             "content1 content1 sidebar"   /*Bir satır aşağı yazıyoruz ki sitede de bir row aşağı insin*/            
+                             ". footer sidebar";   /*sidebar ı tekrar yazarak 2 row verdik*/  
+                             /*. yazarsan, o kısım boş kalır*/    
+        gap: 10px;
+    }
+    
+    .header {
+        grid-area: header;/*artık yukarda atadığımız alan bunun*/
+        text-align: center;
+        background-color: blueviolet;
+        padding: 20px;
+    }
+
+    .section {
+        grid-area: content1;
+        border: 2px solid crimson;   
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        padding: 10px;
+    }
+
+    .sidebar {
+        grid-area: sidebar;
+        border: 2px solid blue;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .footer {
+        grid-area: footer;
+        text-align: center;
+        border: 2px solid cadetblue;
+        border-radius: 20px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <div class="container">
+        <header class="header">
+            <p>I wont see You Tonight</p>
+        </header>
+        <section class="section">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque architecto a cum nisi eum. Quia maxime
+                expedita nihil praesentium. Voluptatum vel aut nam suscipit? Amet unde ab quod officiis molestiae?
+                Quasi repellat dolor rem facere delectus mollitia sapiente sunt culpa inventore exercitationem,
+                molestias pariatur explicabo maiores, corrupti accusamus quod reiciendis quis quibusdam ab enim ipsum
+                harum voluptate? Aliquam, quo maxime.
+                Ut adipisci nisi odio fuga, sequi culpa ratione mollitia! Nemo molestiae dolorem, pariatur dolorum odio
+                odit iure neque, sint quia cum doloribus incidunt recusandae, iusto eum aut corrupti aliquid id.
+            </p>
+        </section>
+        <section class="sidebar">
+            <h2> I NEVER WANTED ANYTHİNG SO BAD</h2>
+            <ul>
+                <li>Until We</li>
+                <li>Touch</li>
+                <li> The </li>
+                <li> Burning Sun</li>
+            </ul>
+        </section>
+        <footer class="footer">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio numquam culpa ad nam ipsum molestias rem
+                voluptas nobis quo maiores ducimus natus molestiae, possimus minima alias! Officia nihil nisi quisquam!
+                Nulla fugit harum officia delectus, recusandae provident explicabo repellat sed voluptatibus iure
+                expedita excepturi non molestias vel quo architecto deleniti nobis labore voluptate perspiciatis
+                sapiente. Quos ex excepturi perspiciatis voluptatem.
+            </p>
+        </footer>
+
+
+    </div>
+</body>
+
+</html>

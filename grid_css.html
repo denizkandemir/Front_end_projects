@@ -19,15 +19,21 @@
         /*grid-column: 2/-1;
         2.column çizgisinden başlayıp, son çizgiye kadar gider*/
 
-        grid-template-columns: repeat(4,300px);
-        /*4 column a 300px lik yer verir*/
+       /* grid-template-columns: repeat(4,300px);
+        4 column a 300px lik yer verir*/
 
         /*grid-template-rows: 100px 200px;
          ilk satırı 100px, ikinci satırı 200px yaptı*/
 
+        /*grid-template-columns: minmax(200px,600px) minmax(100px,500px) minmax(50px,300px);
+        columlar küçülür ve büyür artık*/
+
+        grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+        /*flex wrap gibi sığmayanı aşağı atar
+
         row-gap: 20px;/*rowlarda gap bırakır işte amk*/
         column-gap: 20px;
-
+  
         background-color: blueviolet;
         padding: 20px;
        }

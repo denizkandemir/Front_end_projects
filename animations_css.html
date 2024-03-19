@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+        }
+
+        .box {
+            background-color: blueviolet;
+            width: 150px;
+            height: 150px;
+
+            animation-name: box;
+            /*keyframe e verdiğimiz isim*/
+            animation-duration: 3s;
+
+            animation-iteration-count: 2;
+            /*kaç kere tekrarlanacağı infinite de verebilirsin*/
+
+            animation-fill-mode: forwards;
+            /*animasyon bitince bitiiği yerde kalmasını sağlar*/
+
+            /*animation-delay: 2s;
+            2 sn bekleyip öyle başlar
+
+             animation-direction: alternate-reverse;
+              /*tersten animasyonu başlatır*/
+
+            animation-timing-function: ease-in-out;
+
+            /*Bu özellikleri tek satırda da yazabilirsin
+            animation: a1 3s forwards 2s ease-in*/
+
+        }
+
+        @keyframes box {
+            to {
+                border-radius: 50%;
+                background-color: crimson;
+                transform: translate(100px,-100px);
+            }
+
+            /*animasyonun ne yapmasını istediğini bu şekilde
+            keyframe ile ataman, sonra da verdiğğn ismi classta yazman lazım*/
+        }
+
+        @keyframes slide {
+            from { 
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .animation-container {
+            width: 100%;
+            height: 500px;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide-container {
+            max-width: 1350px;
+            overflow: hidden;/*öğrencez inş bu ikisinin ne yaptığını*/
+            white-space: nowrap;
+            position: relative;
+            padding: 20px;
+        }
+
+        .slide-container:before { /*resimlerin arkalarında kayboladuğu beyaz alanın sol tarafı*/
+            left: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+        }
+
+        .slide-container::after { /*resimlerin arkalarında kayboladuğu beyaz alanın sağ tarafı*/
+            right: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+        }
+
+
+        .slide-container:before 
+        .slide-container::after { /*resimlerin arkasında kaybolduğu alanların özellikleri*/
+            position: absolute;  
+            top: 0;      
+            width: 250px;
+            height: 450px;
+            content: " ";
+            z-index: 2;/*z index i 2 veriyoruz ki resimler arkasına girsin*/
+        }
+
+
+        .slide {
+            display: block; /*displayleri böyle kullanınca 2 div yan yana oluyor üst üstte değil*/
+            animation: 10s slide infinite linear;
+            display: inline-block;
+        }
+
+        .items {
+            height: 200px;
+            padding: 20px 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+
+        </div>
+    </div>
+    <div class="animation-container">
+        <div class="slide-container">
+            <div class="slide">
+
+                <img src="images/about-city-img-india.png" alt="" class="items">
+                <img src="images/about-city-img-tommorowland.png" alt="" class="items">
+                <img src="images/homepage-explore1.png" alt="" class="items">
+                <img src="images/homepage-explore2.png" alt="" class="items">
+                <img src="images/hometour-packages-switzerland.png" alt="" class="items">
+            </div>
+            <div class="slide">
+                <img src="images/about-city-img-india.png" alt="" class="items">
+                <img src="images/about-city-img-tommorowland.png" alt="" class="items">
+                <img src="images/homepage-explore1.png" alt="" class="items">
+                <img src="images/homepage-explore2.png" alt="" class="items">
+                <img src="images/hometour-packages-switzerland.png" alt="" class="items">
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

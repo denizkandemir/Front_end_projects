@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+       .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       }
+
+       .box {
+         background-color:blueviolet;
+         width: 150px;
+         height: 150px;
+          /*transition: background-color 2s ease-in,border-radius 2s;
+         2 sn içinde, background rengini ve border ı değiştirir
+         ease-in başlangı ve bitiş hızıyla ilgili*/
+         transition: all 2s ease-in;
+         /*all dediğimiz için artık, hover da verdiğimiz tüm 
+         elemanlar 2sde ve ease in şeklinde değişim yapıcak*/
+       }
+
+       .box:hover {
+        background-color: crimson;
+        border-radius: 50%;
+        border: 3px solid blue;
+        width: 300px;
+        height: 300px;
+       }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+        </div>
+    </div>
+    
+</body>
+</html>

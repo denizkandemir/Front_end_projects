@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: grid;
+            background-color: blueviolet;
+            grid-template-columns: repeat(3,20%);
+            grid-auto-rows: repeat(3,300px);
+            /*auto dersen , her zaman 300px olurlar*/
+            height: 300px;
+            gap: 20px;
+
+            justify-items: center;
+            /*Her bir columun içinde ortaya atar
+            justify-items:start; */
+           
+            align-items: center;
+            /*Her bir rowda ortalama yapar*/
+           
+            justify-content: center;
+            align-content: center;
+            /*Bu 600px yüksekliği olan container ın ortasına dizer hepsini*/
+        }
+        
+        .box {
+            background-color: blue;
+            padding: 20px;
+        }
+        .box:first-child {
+            justify-self: center;
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"> Box1 </div>
+        <div class="box"> Box2</div>
+        <div class="box"> Box3</div>
+        <div class="box"> Box4</div>
+        <div class="box"> Box5</div>
+    </div>
+</body>
+</html>

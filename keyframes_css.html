@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        height: 100vh;
+       }
+
+       .box {
+         background-color:blueviolet;
+         width: 150px;
+         height: 150px;
+         position: relative;
+         
+         animation-name: box;
+         /*keyframe e verdiğimiz isim*/
+         animation-duration: 6s;
+         
+         animation-iteration-count: infinite;
+         /*kaç kere tekrarlanacağı infinite de verebilirsin*/
+
+         animation-fill-mode: forwards;
+         /*animasyon bitince bitiiği yerde kalmasını sağlar*/
+
+         animation-timing-function: ease-in;
+
+         /*Bu özellikleri tek satırda da yazabilirsin
+         animation: a1 3s forwards 2s ease-in*/
+
+       }
+     
+       @keyframes box {
+        0%{
+           top: 0;
+           left: 0;
+        }
+        25% {
+            top:100px;
+            left: 0;
+            background-color: crimson;
+        }
+        50%{
+            top: 100px;
+            left:300px;
+            border-radius: 50%;
+            background-color: blue;
+        }
+        75%{
+            top:200px;
+            left:300px;
+            border-radius: 0;
+            background-color: chartreuse;
+        }
+        100% {
+            top:200px;
+            left:400px;
+            border-radius: 50%;
+            background-color: crimson;
+        }
+        /*Animasyon süresini bu şekilde parçalara ayırarak
+        her bir aşamada neler olacağını ayarlayabilirsin*/
+       }
+
+       h1 {
+        position: relative;
+        /*anlaşılan animasyononun işe yaraması için position relative
+         vermen lazım*/
+         animation: text-animation 5s forwards ease-in-out;
+       }
+
+       @keyframes text-animation {
+        from {
+            left: -420px;
+            /*-li değer verirsen sayfanın dışından gelir*/
+        }
+        to {
+           left: 500px;
+        }
+       }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> DULLLLLL KNIIIIVESSSSS </h1>
+        <div class="box">
+
+        </div>
+        <div class="box">
+
+        </div>
+         
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+         display: grid;
+         grid-template-columns: repeat(3,1fr);
+         gap: 10px;
+         background-color: blueviolet;
+        }
+
+        .item{
+            background-color: crimson;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        @media(max-width:768px) {
+            .container {
+                grid-template-columns: repeat(2,1fr);
+            }
+            /*768px in altında artık 2 column a ayrılacak */
+        }
+        /*Gridte, her media query de column sayısı azaltılarak 
+        responsivite sağlanabilir*/
+
+        @media(max-width:500px) {
+            .container {
+             grid-template-columns: repeat(1,1fr);
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">I think</div>
+        <div class="item">I am wrecked</div>
+        <div class="item">All alooone</div>
+        <div class="item">I'll see you again</div>
+        <div class="item">My loved one</div>
+        <div class="item">Yeaah I'm wrecked</div>
+        <div class="item">I see youu agaiin my loved onee</div>
+    </div>
+</body>
+</html>
