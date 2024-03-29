@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Count-People </title>
+</head>
+<body>
+     <h1>People Count</h1>
+     <h2 id="count"> 0 </h2>
+     <button id="increase"> Increase </button>
+     <script>
+        document.getElementById("count").innerText = 5
+        /*Idsini aldığımız elementin, içeriğini 5 yaptık*/
+        console.log(document.querySelector("#count"))
+        /*count idsi olan objeyi yazdırır. Queryselectorall dersen, ıdsi count olan
+        tüm objeleri seçer*/
+        const count = document.querySelector("#count"); /*variableye atadık*/
+        count.style.backgroundColor = "crimson"; /*İdsi count olan elemanın styleını değiştirdik*/
+     </script> 
+</body>
+</html>

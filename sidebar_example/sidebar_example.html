@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .sidebar {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: fixed;
+         top: 0;
+         left: 0;
+         border: 3px solid crimson;
+         height: 100%;
+         width: 250px;
+         background-color: blueviolet;
+         transform: translateX(-100%);
+         transition: all 3s ease-in-out;
+        }
+        
+        .sidebar li {
+            list-style: none;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            margin-top:30px;
+            display: inline-block;
+        } 
+
+        .opensidebar {
+            transform: translateX(0);
+            transition: all 3s ease-in-out;
+        }
+
+        .sidebar_opener {
+            margin-top: 20px;
+            padding: 20px;
+            background-color:cornflowerblue;
+            border-radius: 30px;
+            transform: all 3s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Information</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </div>
+    <button id="sidebar_opener" class="sidebar_opener"> Open Sidebar </button>
+    <script src="sidebar_example.js"></script>
+</body>
+</html>
