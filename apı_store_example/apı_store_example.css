@@ -1,3 +1,40 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    margin: 20px 0px;
+}
+.navbar-search {
+    width: 40%;
+    border: 2px solid #DF6951;
+    border-radius: 30px;
+    padding: 15px;
+}
+.navbar-list-container {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.category-btn{
+    border: 3px solid white;
+    color: white;
+    width: 110px;
+    border-radius: 15px;
+    padding: 15px 20px;
+    background-color: #DF6951;
+}
+.navbar-option {
+    list-style: none;
+    color: #DF6951;
+    font-size: 20px;
+    text-decoration: none;
+}
+
 .products-container {
     display: grid;
     grid-template-columns: repeat(3,1fr);
