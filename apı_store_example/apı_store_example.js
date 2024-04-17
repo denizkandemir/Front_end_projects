@@ -57,7 +57,9 @@ function ShowProducts(products) {
                 <s>${item.price}</s>
                 <p>${MakeDiscount(item.price, 30)}</p>
                 <p>${item.description}</p>
-                <button onclick="addToWishlist(${item})"> Add To Wishlist </button>
+                <button class="wishlist-button" onclick="addToWishlist(${item.id})">
+                  Add To Wishlist 
+                </button>
              </div>`;
    }).join("");
 
@@ -74,10 +76,10 @@ function ShowProducts(products) {
 function addToWishlist(anyProduct) {
    console.log("added to wishlist");
    const wishlist_products = JSON.parse(localStorage.getItem("wishlistProducts")) || [];
-   const productToAdd = allProducts.find((item) => item.id === anyProduct.id);
+   const productToAdd = allProducts.find((item) => item.id === anyProduct);
 
    const isProductInWishlist = wishlist_products.some(
-      (item) => item.id === anyProduct.id
+      (item) => item.id === anyProduct
    );
 
    if (!isProductInWishlist) {

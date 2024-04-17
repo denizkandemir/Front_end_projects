@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .best-selling-container{
+            margin-left:auto;
+            margin-right: auto;
+            width: 1000px;
+            margin-top: 50px;
+        }
+        .best-selling-first-title {
+            color: #DB4444;
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .best-selling-titles-container{
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 20px;
+        }
+        .best-selling-main-title {
+            font-size: 36px;
+            line-height: 48px;
+        }
+        .best-selling-button{
+            background-color: #DB4444;
+            padding: 16px 48px;
+            color: white;
+            border-radius: 15px;
+        }
+        .best-selling-api-products-container {
+            display: grid;
+            grid-template-columns: repeat(4,minmax(100px,220px));
+            grid-template-rows: minmax(150px,360px);
+            gap: 40px;
+            margin-top: 50px
+        }
+        .best-selling-products-features{
+            margin-top: 20px;
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .best-selling-products-img{
+           height: 250px;
+           object-fit: cover;
+        }
+        .best-selling-discount {
+            display: flex;
+            gap: 10px;
+        }
+        .discount-price{
+            color: #DB4444;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="best-selling-container">
+        <p class="best-selling-first-title">This Month</p>
+        <div class="best-selling-titles-container">
+            <h3 class="best-selling-main-title">Best Selling Products </h3>
+            <button class="best-selling-button">View All</button>
+        </div>
+        <div class="best-selling-api-products-container" id="best-selling-api-products"> 
+
+        </div>              
+    </div>
+    <script src="selling.js"></script>
+</body>
+</html>

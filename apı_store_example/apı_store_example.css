@@ -43,6 +43,15 @@
     grid-template-rows: minmax(300px,1fr);
 }
 
+.wishlist-button {
+  padding: 15px 20px;
+  border: 2px solid white;
+  border-radius: 30px;
+  color: white;
+  background-color: #DF6951;
+
+}
+
 img {
     width: 100%;
     border: solid 3px crimson;
