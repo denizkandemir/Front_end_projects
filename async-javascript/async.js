@@ -32,3 +32,13 @@ getPost(5);
 //fetch metodunun içindeki serverın sonundaki birimi, parametre olarak değiştirdik
 //sondaki methodun zaten id olduğunu biliyoz, ondan dolayı beklediğimizden farklı bir değer gelmez
 //Fonksiyonu artık hangi sayı ile çağırırsak, o id deki objeyi alıcaz.
+
+async function getUserGithub(userName) {
+    const response3 =  await fetch(`https://api.github.com/users/${userName}`)
+    const data3 = await response3.json();
+    console.log(data3);
+ }
+
+ getUserGithub("plinhs");
+ getUserGithub("denizkandemir");
+ getUserGithub("mehmetkumruu");
