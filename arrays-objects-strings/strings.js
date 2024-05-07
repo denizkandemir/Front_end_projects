@@ -1,5 +1,5 @@
-let name = "deno"
-console.log(`Welcome again ${name}`)
+let name3 = "deno"
+console.log(`Welcome again ${name3}`)
 
 let word = "HELLO THERE   "
 console.log(word.trim()) // Sondaki Boşlukları siler
@@ -9,9 +9,11 @@ let name2 = "Denız kırırırı"
 console.log(name2.toUpperCase()) // Büyük harfle yazar
 console.log(name2.toLowerCase()) // Küçük harfle yazar
 console.log(name2.toLocaleUpperCase('tr-TR')); //Türkçeye gçre büyütüp yazar. i ler ile bu durumda
+
 console.log(name2.indexOf('e'))  //ilk e nin indexsini verir
 console.log(name2.lastIndexOf('ı'))  //Son e nin yerini verir
-console.log(name2.indexOf("kırırırı")) //There kelimesinin kaçıncı indexten başladığını verir
+console.log(name2.indexOf("kırırırı")) //kelimenin kaçıncı indexten başladığını verir
+
 console.log(name2.indexOf("anan")) //Olmayan bir kelimeyi ararsan , -1 verir 
 console.log(name2.indexof('ı' , 4)) //4. elemandan sonraki ı nın index ini verir
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exclusive E-Commerce Cart</title>
+  <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+  <div class="cart-main-container">
+    <p class="cart-home-link">Home / <a href="cart.html">Cart</a></p>
+    <div class="cart-products-container">
+      <div class="cart-products-titles-container">
+        <p class="cart-products-titles cart-products-first-title">Products</p>
+        <p class="cart-products-titles">Price</p>
+        <p class="cart-products-titles">Quantity</p>
+        <p class="cart-products-titles">Subtotal</p>
+      </div>
+      <div class="cart-local-storage-products-container" id="card-local-storage-container">
+
+      </div>
+      <div class="cart-buttons-container">
+        <a href="index.html"><button class="cart-button" >Return To Shop</button></a>
+        <button class="cart-button" id="cart-update-button">Update Cart</button>
+      </div>
+    </div>
+    <div class="cart-products-coupon-total-container">
+      <div class="cart-input-button-container">
+        <input type="text" placeholder="Coupon Code" class="cart-products-input" id="cart-coupon-input">
+        <button class="cart-products-coupon-button" id="cart-coupon-apply-button"> Apply Coupon </button>
+      </div>
+      <div class="cart-total-container">
+        <p class="cart-total-title"> Cart Total </p>
+        <div class="cart-subtotal-container">
+          <p class="cart-subtotal"> Subtotal </p>
+          <p class="cart-subtotal-number" id="cart-calculate-subtotal"></p>
+        </div>
+        <div class="cart-shipping-container">
+          <p class="cart-shipping"> Shipping </p>
+          <p class="cart-shipping-number" id="cart-shipping-subtotal"></p>
+        </div>
+        <div class="cart-calculated-total-container">
+          <p class="cart-total"> Total </p>
+          <p class="cart-total-number" id="cart-calculate-total"></p>
+        </div>
+        <div class="cart-total-button-container">
+          <button class="cart-total-button"> Procees to checkout </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html>

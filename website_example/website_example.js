@@ -12,5 +12,7 @@ const increaseBtn = document.querySelector("#increaseBtn");
 let countValue = 0;
 increaseBtn.addEventListener("click", () => { 
   countValue++;
-  count.innerText= countValue;
+  count.innerText = countValue;
+  //count.textContent = countValue;
+  //aynı şey glb
 });//eventlistener ile, ilk parametrede ne olunca ikinci parametreye geçilceği verilir.
