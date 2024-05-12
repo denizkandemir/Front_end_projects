@@ -12,6 +12,23 @@ const toDo2 = {
 
 toDoList.push(toDo1,toDo2);
 //Bu şekilde arraye objeler ekleyebilirsin
+toDoList.pop();
+//son elemanı siler
+toDoList.shift();
+//ilk elemanı siler
+toDoList.unshift(toDo1);
+//toDo1 i  en başa ekler
+
+let randomNumber = Math.random()
+console.log(randomNumber);
+//math random, 0 ile 1 arası bir sayı verir.Bu yüzden çarparak kullnamamız lazım
+
+let anotherRandomNumber = Math.random()*100;
+//artık, 1 ile 100 arası vericek
+
+function getRandomCard() {
+    return Math.floor( Math.random()*13 ) + 1 // 1-13 arası vermesi için +1 ekledik
+}
 
 const tempratures = [
     {
