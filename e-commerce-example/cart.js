@@ -2,20 +2,20 @@
 
 const cartPageProducts = JSON.parse(localStorage.getItem("cartProducts")) || [];
 const cartProductsContainer = document.getElementById("card-local-storage-container");
+const emptyTextDiv = document.getElementById("cart-empty-text-container");
 
 function displayCartProducts() {
   if(cartPageProducts.length === 0) {
-    cartProductsContainer.innerHTML = `<div class="cart-products-features-container" style="padding: 30px">
-                                         <div class="cart-empty-text-svg-container">
-                                          <p class="cart-empty-text"> You do not have any products in your cart </p>
-                                          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                           </svg>
-                                          </div> 
-                                       </div>`
+    emptyTextDiv.innerHTML = ` <div class="cart-empty-text-svg-container">
+                                 <p class="cart-empty-text"> You do not have any products in your cart </p>
+                                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                  <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                 </svg>
+                                </div> `                                
+    emptyTextDiv.style.display = "block";
   }
   else {
     cartProductsContainer.innerHTML = cartPageProducts.map((product) => {
@@ -23,35 +23,44 @@ function displayCartProducts() {
                <div class="cart-products-image-container">
                 <img src="${product.image}" class="cart-products-images"/>
                 <p class="cart-products-names cart-p"> ${product.title} </p>
-               </div>      
-               <p class="cart-p"> ${product.price}$ </p>
+               </div>  
+               <div class="cart-products-responsive-p-container">
+                  <p class="cart-p cart-products-responsive-p">Price : </p>
+                  <p class="cart-p"> ${product.price}$ </p>
+               </div>
                <div class ="cart-quantity-subtotal-container">
-                <div class="cart-select-appearance-container">   
-                 <select id="product-quantity-${product.id}" class="cart-products-quantity">
-                  <option>0</option>
-                  <option selected>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                 </select> 
-                 <div class="cart-select-buttons-container">
-                  <?xml version="1.0" encoding="utf-8"?>
-                  <svg width="11px" height="11px" id="select-increment-button-${product.id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289L19.7071 14.2929C20.0976 14.6834 20.0976 15.3166 19.7071 15.7071C19.3166 16.0976 18.6834 16.0976 18.2929 15.7071L12 9.41421L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7Z" fill="#000000"/>
-                  </svg>
-                  <?xml version="1.0" encoding="utf-8"?>
-                  <svg width="11px" height="11px" id="select-decrement-button-${product.id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.29289 8.29289C4.68342 7.90237 5.31658 7.90237 5.70711 8.29289L12 14.5858L18.2929 8.29289C18.6834 7.90237 19.3166 7.90237 19.7071 8.29289C20.0976 8.68342 20.0976 9.31658 19.7071 9.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289Z" fill="#000000"/>
-                  </svg>
-                 </div>
+                <div class="cart-products-responsive-p-container">
+                 <p class="cart-p cart-products-responsive-p"> Quantity : </p>
+                 <div class="cart-select-appearance-container">   
+                  <select id="product-quantity-${product.id}" class="cart-products-quantity">
+                   <option>0</option>
+                   <option selected>1</option>
+                   <option>2</option>
+                   <option>3</option>
+                   <option>4</option>
+                   <option>5</option>
+                   <option>6</option>
+                   <option>7</option>
+                   <option>8</option>
+                   <option>9</option>
+                   <option>10</option>
+                  </select> 
+                  <div class="cart-select-buttons-container">
+                   <?xml version="1.0" encoding="utf-8"?>
+                   <svg width="11px" height="11px" id="select-increment-button-${product.id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C12.2652 7 12.5196 7.10536 12.7071 7.29289L19.7071 14.2929C20.0976 14.6834 20.0976 15.3166 19.7071 15.7071C19.3166 16.0976 18.6834 16.0976 18.2929 15.7071L12 9.41421L5.70711 15.7071C5.31658 16.0976 4.68342 16.0976 4.29289 15.7071C3.90237 15.3166 3.90237 14.6834 4.29289 14.2929L11.2929 7.29289C11.4804 7.10536 11.7348 7 12 7Z" fill="#000000"/>
+                   </svg>
+                   <?xml version="1.0" encoding="utf-8"?>
+                   <svg width="11px" height="11px" id="select-decrement-button-${product.id}" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.29289 8.29289C4.68342 7.90237 5.31658 7.90237 5.70711 8.29289L12 14.5858L18.2929 8.29289C18.6834 7.90237 19.3166 7.90237 19.7071 8.29289C20.0976 8.68342 20.0976 9.31658 19.7071 9.70711L12.7071 16.7071C12.3166 17.0976 11.6834 17.0976 11.2929 16.7071L4.29289 9.70711C3.90237 9.31658 3.90237 8.68342 4.29289 8.29289Z" fill="#000000"/>
+                   </svg>
+                  </div>
+                 </div> 
                 </div>
-                <p id="price-${product.id}" class="cart-p"> ${product.price.toFixed(2)}$ </p>
+                <div class="cart-products-responsive-p-container">
+                  <p class="cart-p cart-products-responsive-p"> Subtotal : </p>
+                  <p id="price-${product.id}" class="cart-p"> ${product.price.toFixed(2)}$ </p>
+                </div>  
                </div> 
               </div>`
     }).join("");  
@@ -67,7 +76,9 @@ function subtotalCalculations() {
     const quantity = cartProductsContainer.querySelector(`#product-quantity-${product.id}`);
    quantity.addEventListener(("click") , () => {  
      updateSubtotals(product,parseInt(quantity.value));
-     console.log(quantity.value)
+     if(parseInt(quantity.value) === 0) {
+      deleteFromCart();
+     }
    });
    incrementButton.addEventListener(("click") , () => {
     let intQuantity = parseInt(quantity.value);
@@ -80,15 +91,18 @@ function subtotalCalculations() {
       alert("You can buy maximum 10 pieces of one product in one order");
     }
    });
+
    decrementButton.addEventListener(("click") , () => {
     let intQuantity = parseInt(quantity.value);
-    if (intQuantity > 0) {
+    if (intQuantity > 1) {
      intQuantity -= 1;
      quantity.value = intQuantity;
      updateSubtotals(product,intQuantity);   
     }
-    else {
-      alert("Quantity cannot be smaller than 0");
+    else if(intQuantity === 1) {
+      intQuantity -= 1;
+      quantity.value = intQuantity;
+      deleteFromCart();
     }
    });
  }); 
@@ -97,6 +111,19 @@ function subtotalCalculations() {
 function updateSubtotals(product,any_quantity) {
   const subtotal = cartProductsContainer.querySelector(`#price-${product.id}`);
   subtotal.textContent = `${(product.price*any_quantity).toFixed(2)}$`;
+};
+
+function deleteFromCart() {
+  cartPageProducts.map((product) => {
+    const quantity = cartProductsContainer.querySelector(`#product-quantity-${product.id}`); 
+    if(parseInt(quantity.value) === 0){
+       const deletedProduct = cartPageProducts.findIndex((productToDelete) => productToDelete.id === product.id);
+       cartPageProducts.splice(deletedProduct,1);
+       localStorage.setItem("cartProducts", JSON.stringify([...cartPageProducts]));
+       localStorage.removeItem(`productFeatures-${product.id}`);
+       window.location.reload();
+     } 
+  });
 };
 
 let productFeatures = {
@@ -111,18 +138,10 @@ function updateCart() {
     const subtotal = cartProductsContainer.querySelector(`#price-${product.id}`);
     
     updateButton.addEventListener(("click") , () => {
-     if(parseInt(quantity.value) >= 1){
       productFeatures.quantity = parseInt(quantity.value);
       productFeatures.subtotal = subtotal.textContent;
       localStorage.setItem(`productFeatures-${product.id}` , JSON.stringify(productFeatures));
-     }
-     else if(parseInt(quantity.value) === 0){
-       const deletedProduct = cartPageProducts.findIndex((productToDelete) => productToDelete.id === product.id);
-       cartPageProducts.splice(deletedProduct,1);
-       localStorage.setItem("cartProducts", JSON.stringify([...cartPageProducts]));
-       localStorage.removeItem(`productFeatures-${product.id}`);
-     }
-     window.location.reload();
+      window.location.reload();
    });
  });
 };
@@ -146,32 +165,43 @@ function getStoredValues() {
 };
 
 const checkoutTotal = document.querySelector("#cart-calculate-total");
+const freeShippingDiv = document.querySelector("#cart-free-shipping-container");
+const checkoutSubtotal = document.querySelector("#cart-calculate-subtotal");
+const cartShippingContainer = document.querySelector("#cart-shipping-subtotal");
 
 function checkoutTotalCalculations() {
-  const checkoutSubtotal = document.querySelector("#cart-calculate-subtotal");
-  const cartShippingContainer = document.querySelector("#cart-shipping-subtotal");
-  const cartShippingValue = calculateShipping();
-  cartShippingContainer.textContent = `${cartShippingValue}$`;
-
   let cartSum = 0;
   cartPageProducts.forEach((product) => {
     const quantity = cartProductsContainer.querySelector(`#product-quantity-${product.id}`); 
     const intQuantity = parseInt(quantity.value);
     cartSum  += (intQuantity * product.price);  
   });
+    
+  const cartShippingValue = calculateShipping(cartSum);
   
+  if (cartShippingValue === 0) {
+    cartShippingContainer.textContent = `Free`;
+  } else {
+    freeShippingCalculations(cartSum);
+   cartShippingContainer.textContent = `${cartShippingValue}$`;
+  }
+ 
   checkoutSubtotal.textContent = `${cartSum.toFixed(2)}$`;
   checkoutTotal.textContent = `${(cartSum + cartShippingValue).toFixed(2)}$`
 };
 
-function calculateShipping() {
+function calculateShipping(cartSubtotal) {
   let totalQuantity = 0;
   cartPageProducts.forEach((product) => {
     const quantity = cartProductsContainer.querySelector(`#product-quantity-${product.id}`); 
     const intQuantity = parseInt(quantity.value);
     totalQuantity += (intQuantity);
   });
-
+  
+  if (cartSubtotal >= 500) {
+    freeShippingDiv.style.display = "none";
+    return 0
+  }   
   if(totalQuantity === 0) 
    {return 0;}
   else if(totalQuantity <= 5) 
@@ -181,9 +211,16 @@ function calculateShipping() {
   else {return 30;}
 };
 
+function freeShippingCalculations(cartSubtotal) {
+   const shippingSubtraction = (500 - cartSubtotal).toFixed(2);
+   freeShippingDiv.innerHTML = `<p class="cart-p"> Add ${shippingSubtraction}$ worth product for Free Shipping</p>`
+   freeShippingDiv.style.display = "block";
+}
+
 const discountDiv = document.querySelector("#cart-discount-container");
 const removeCouponDiv = document.querySelector("#cart-coupon-remove-container");
 const totalBeforeDiscount = document.querySelector("#cart-total-before-discount-container");
+const couponInput = document.querySelector("#cart-coupon-input");
 
 let couponFeatures = {
   discount: 0,
@@ -193,7 +230,6 @@ let couponFeatures = {
 function applyCoupun() {
   const floatTotal = parseFloat(checkoutTotal.textContent);
   const applyButton = document.querySelector("#cart-coupon-apply-button");
-  const couponInput = document.querySelector("#cart-coupon-input");
   checkStoredCoupon(floatTotal);
   
   applyButton.addEventListener(("click") , () => {
@@ -202,19 +238,13 @@ function applyCoupun() {
     if(couponFeatures.couponApplied){
       const couponText = couponInput.value;
       couponFeatures.discount = checkCoupon(couponText);
-      console.log(couponFeatures.discount)
-
+      
       if(couponFeatures.discount === 0) {
        alert("The coupon is unvalid");
       }
       else {
          alert("Coupon applied to your total")     
-         checkoutTotal.textContent = `${(floatTotal - (floatTotal * couponFeatures.discount)).toFixed(2)}$`;
-         displayCouponElements(floatTotal);
-            
-         discountDiv.innerHTML = `<p class="cart-p">Coupon Discount </p>
-                                  <p class="cart-p"> - ${(floatTotal * couponFeatures.discount).toFixed(2)}$</p>`;
-         discountDiv.style.display = "flex";
+         displayCouponElements(floatTotal,couponFeatures.discount);
          couponFeatures.couponApplied = false;
          localStorage.setItem("couponFeatures-storage", JSON.stringify(couponFeatures));   
       }
@@ -244,7 +274,7 @@ function checkCoupon(couponText) {
  }
 };
 
-function displayCouponElements(floatTotal) {
+function displayCouponElements(floatTotal,any_coupon) {
   totalBeforeDiscount.innerHTML = `<p class="cart-p">Total Before Discount </p>
                                      <p class="cart-p"> ${floatTotal}$ </p> `
   totalBeforeDiscount.style.display = "flex";
@@ -257,6 +287,13 @@ function displayCouponElements(floatTotal) {
                                       </svg>
                                      </div> `;
   removeCouponDiv.style.display = "flex"; 
+
+  checkoutTotal.textContent = `${(floatTotal - (floatTotal * any_coupon)).toFixed(2)}$`;
+  discountDiv.innerHTML = `<p class="cart-p">Coupon Discount </p>
+                           <p class="cart-p"> - ${(floatTotal*any_coupon).toFixed(2)}$</p>`;
+  discountDiv.style.display = "flex";
+
+  couponInput.value = "";
 };
 
 function checkStoredCoupon(floatTotal) {
@@ -265,13 +302,7 @@ function checkStoredCoupon(floatTotal) {
   
   if(!storedCouponApplied  && storedCouponApplied !== undefined) {
     const floatStoredCoupon = parseFloat(storedCouponFeatures.discount);
-    displayCouponElements(floatTotal);
-
-    checkoutTotal.textContent = `${(floatTotal - (floatTotal * floatStoredCoupon)).toFixed(2)}$`;
-    discountDiv.innerHTML = `<p class="cart-p">Coupon Discount </p>
-                             <p class="cart-p"> - ${(floatTotal*floatStoredCoupon).toFixed(2)}$</p>`;
-    discountDiv.style.display = "flex";
-
+    displayCouponElements(floatTotal,floatStoredCoupon);
     return false;
   }
   else {
@@ -292,8 +323,5 @@ updateCart();
 getStoredValues();
 checkoutTotalCalculations();     
 applyCoupun();
-
-
-
 
 //Cart Ends

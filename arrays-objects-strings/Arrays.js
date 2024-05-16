@@ -250,3 +250,4 @@ const uniqueDishes = [...new Set(randomDishes), "french fries"];
 
 
 console.log(uniqueDishes);
+
