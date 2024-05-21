@@ -1,25 +1,43 @@
-//Best Selling and Explore Products Starts
+//Header Starts
+
+let advertiseCounter = 1;
+setInterval(() => {
+  const advertiseRadio = document.getElementById(`radio${advertiseCounter}`);
+  advertiseRadio.checked = true;
+ 
+  advertiseCounter++;
+  if (advertiseCounter > 5) {
+    advertiseCounter = 1;
+  }
+},5000);
+
+
+//Best Selling and Explore Products Start
 const sellingProductsContainer = document.querySelector("#best-selling-api-products");
 
+let tempBestSelling = [];
+let tempExploreProducts = [];
 let wishListProducts = [];
 let cartProducts = [];
 let bestSellingProducts = [];
-let allProducts = [];
-
+let products = [];
+let scrollAmount = 0;
+const productBox = document.getElementById("explore-products-box");
 
 async function getApıProducts() {
-  const apiResponse = await fetch("https://fakestoreapi.com/products");
+  const apiResponse = await fetch("https://fakestoreapi.com/products",{mode: 'cors'});
   const apiProducts = await apiResponse.json();
   return apiProducts;
 };
 
-async function DisplayBestSellingProducts() {
+async function displayProducts() {
   const allProducts = await getApıProducts();
+
   for (let i = 5; i < 9; i++) {
     bestSellingProducts[(i-5)] = allProducts[i];
-  }
+  };
     
-  sellingProductsContainer.innerHTML = bestSellingProducts.map((product) => {
+  tempBestSelling = bestSellingProducts.map((product) => {
     return `<div class="best-selling-api-products">
              <div class="best-selling-product-container">
               <div class="best-selling-img-container">
@@ -55,9 +73,53 @@ async function DisplayBestSellingProducts() {
               </div> 
             </div>`
   }).join("");
+  sellingProductsContainer.innerHTML = tempBestSelling;
 
  changeCartSvg(sellingProductsContainer);
  changeWishlistSvg(sellingProductsContainer);
+
+  products = allProducts;
+  tempExploreProducts =  products.map((product) => {
+   return `
+   <div>
+    <div id="${product.id}" class="explore-product">
+      <div class="explore-img-and-icon-box"> 
+          <div class="explore-product-img-box">
+              <img class="explore-product-img" src="${product.image}" alt="" />
+          </div>
+          <div class="explore-wishlist-and-cart-icon">
+              <div onclick="addToWishlist(${product.id} , products)" class="wishlist-icon-box">
+                  <svg id="wishlist_${product.id}" class="products-wishlist-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <path id="wishlist-stroke-${product.id}" d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+              </div>
+              <div  onclick="addToCart(${product.id} , products)"  id="cart_${product.id}"  class="selling-card-icon-container">
+               <svg width="24px" height="24px" class="selling-card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+               </svg>        
+             </div>   
+          </div> 
+      </div>
+          <p class="explore-product-title">${product.title}</p>
+         <div class="explore-products-rating-price-container"> 
+          <p class="explore-product-price">$${product.price}</p>
+          <div class="products-rating-container explore-products-rating-container">       
+            <img src="images/stars.png" class="products-stars-img"/>
+            <div class="rating-transparent-div" id="transparent-div" style="width:${hideStars(product)}%"></div>   
+             <p class="explore-product-count">(${product.rating.count})</p>    
+          </div>      
+         </div>        
+     </div>
+   </div> ` }).join("");
+   productBox.innerHTML = tempExploreProducts;
+ 
+ checkStoredCartSvgs(products,productBox);
+ checkStoredWishlistSvgs(products,productBox);
+ changeCartSvg(productBox);
+ changeWishlistSvg(productBox);
 };
 
 function discount(any_products) {
@@ -73,58 +135,7 @@ function hideStars(product) {
     return starRatio;
 };
 
-DisplayBestSellingProducts();
-
-let products = [];
-let product = [];
-let scrollAmount = 0;
-const productBox = document.getElementById("explore-products-box");
-
-async function getProducts() {
-  products = await getApıProducts();
-    productBox.innerHTML =  products.map((product) => {
-     return `
-     <div>
-      <div id="${product.id}" class="explore-product">
-        <div class="explore-img-and-icon-box"> 
-            <div class="explore-product-img-box">
-                <img class="explore-product-img" src="${product.image}" alt="" />
-            </div>
-            <div class="explore-wishlist-and-cart-icon">
-                <div onclick="addToWishlist(${product.id} , products)" class="wishlist-icon-box">
-                    <svg id="wishlist_${product.id}" class="products-wishlist-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                     <path id="wishlist-stroke-${product.id}" d="M11 7C8.239 7 6 9.216 6 11.95C6 14.157 6.875 19.395 15.488 24.69C15.6423 24.7839 15.8194 24.8335 16 24.8335C16.1806 24.8335 16.3577 24.7839 16.512 24.69C25.125 19.395 26 14.157 26 11.95C26 9.216 23.761 7 21 7C18.239 7 16 10 16 10C16 10 13.761 7 11 7Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <div  onclick="addToCart(${product.id} , products)"  id="cart_${product.id}"  class="selling-card-icon-container">
-                 <svg width="24px" height="24px" class="selling-card-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 27C11.5523 27 12 26.5523 12 26C12 25.4477 11.5523 25 11 25C10.4477 25 10 25.4477 10 26C10 26.5523 10.4477 27 11 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M25 27C25.5523 27 26 26.5523 26 26C26 25.4477 25.5523 25 25 25C24.4477 25 24 25.4477 24 26C24 26.5523 24.4477 27 25 27Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M3 5H7L10 22H26" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M10 16.6667H25.59C25.7056 16.6667 25.8177 16.6267 25.9072 16.5535C25.9966 16.4802 26.0579 16.3782 26.0806 16.2648L27.8806 7.26479C27.8951 7.19222 27.8934 7.11733 27.8755 7.04552C27.8575 6.97371 27.8239 6.90678 27.7769 6.84956C27.73 6.79234 27.6709 6.74625 27.604 6.71462C27.5371 6.68299 27.464 6.66661 27.39 6.66666H8" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                 </svg>        
-               </div>   
-            </div> 
-        </div>
-            <p class="explore-product-title">${product.title}</p>
-           <div class="explore-products-rating-price-container"> 
-            <p class="explore-product-price">$${product.price}</p>
-            <div class="products-rating-container explore-products-rating-container">       
-              <img src="images/stars.png" class="products-stars-img"/>
-              <div class="rating-transparent-div" id="transparent-div" style="width:${hideStars(product)}%"></div>   
-               <p class="explore-product-count">(${product.rating.count})</p>    
-            </div>      
-           </div>        
-       </div>
-     </div> ` }).join("");
-    
-   checkStoredCartSvgs(products,productBox);
-   checkStoredWishlistSvgs(products,productBox);
-   changeCartSvg(productBox);
-   changeWishlistSvg(productBox);
-}
-
-getProducts();
+displayProducts();
 
 const productlist = document.querySelector(".explore-products-box");
 const rightArrow = document.querySelector(".explore-right-arrow");
@@ -301,7 +312,7 @@ function removeFromCart(productId) {
    );
 };
 
-//Best Selling and Explore Products Ends
+//Best Selling and Explore Products End
 
 function changeColor(browse) {
   let hompageBrowseBox = browse;
@@ -336,7 +347,6 @@ function selectRandomProduct() {
 }
 
 const randomProduct = selectRandomProduct();
-
 const smallTitle = document.querySelector(".hompage-featured-small-title");
 const bigTitle = document.querySelector(".hompage-featured-big-title");
 const timeBoxes = document.querySelectorAll(".hompage-time-box1");
@@ -361,11 +371,34 @@ const countdown = setInterval(() => {
   const formatTime = (time) => {
     return time < 10 ? `0${time}` : `${time}`;
   };
+   
+  const timeArray = [
+    {
+     time: days ,
+     stringTime: "days"
+    },
 
-  timeBoxes[0].textContent = formatTime(days);
-  timeBoxes[1].textContent = formatTime(hours);
-  timeBoxes[2].textContent = formatTime(minutes);
-  timeBoxes[3].textContent = formatTime(seconds);
+    {
+      time:hours,
+      stringTime : "hours"
+    },
+
+    {
+      time: minutes,
+      stringTime: "minutes"
+     },
+ 
+     {
+       time: seconds,
+       stringTime : "seconds"
+     }
+  ];
+ 
+
+  for (let i = 0; i < timeArray.length; i++) {
+     timeBoxes[i].innerHTML = `<p> ${formatTime(timeArray[i].time)} </p>
+                               <p> ${timeArray[i].stringTime} </p>`;
+  }
 
   if (distance < 0) {
     clearInterval(countdown);
