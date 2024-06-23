@@ -1,0 +1,6 @@
+.header-container {
+  display: flex;
+  background-color: aqua;
+  gap: 30px;
+  padding: 20px;
+}
