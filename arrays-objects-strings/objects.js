@@ -117,6 +117,16 @@ const people = [
 //Burdaki 3 nokta, objenin tüm özelliklerini veriyorum anlamına gelir.
 //3 nokta kullanmazsan, user objesinin spesifik bir değerini bildirmen gerekir. user.name gibi
 
+const person = {
+  age: 24,
+  job:engineer,
+}
+
+const newPerson = {
+  ...person,
+  //Bu şekilde, person objesinin tüm özelliklerini aktarabilirzi
+  statue: active
+}
 
 console.log(newnewUser);
 
